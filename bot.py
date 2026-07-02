@@ -4,7 +4,7 @@ import qrcode
 import io
 import os
 
-TOKEN = os.environ.get("BOT_TOKEN", "")
+TOKEN = os.environ.get("BOT_TOKEN", "8928152886:AAEYGCI6TBjvIUkZJh9XxK-vxLZG_sagI30")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
