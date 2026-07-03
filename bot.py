@@ -61,7 +61,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"سلام {user.first_name}! 👋\n\n"
         "🤖 به ربات QR Code خوش اومدی!\n\n"
         "📝 هر متنی بفرستی → تبدیل به QR Code میشه\n"
-        "🖼️ هر عکسی بفرستی → متنش استخراج و QR میشه\n\n"
         
     )
 
@@ -143,34 +142,6 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         caption=f"✅ QR Code ساخته شد!\n📝 متن: {text[:50]}{'...' if len(text) > 50 else ''}"
     )
 
-async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    status = await update.message.reply_text("🔍 در حال پردازش عکس...")
-    
-    try:
-        # گرفتن عکس با بیشترین کیفیت
-        photo_file = await update.message.photo[-1].get_file()
-        photo_bytes = await photo_file.download_as_bytearray()
-        
-        # خوندن متن از عکس (OCR - اختیاری)
-        try:
-            import pytesseract
-            from PIL import Image
-            img = Image.open(BytesIO(photo_bytes))
-            text = pytesseract.image_to_string(img, lang='eng+fas')
-        except Exception:
-            text = f"photo_{update.message.photo[-1].file_id[:10]}"
-        
-        if text.strip():
-            qr_img = make_qr(text.strip())
-            await update.message.reply_photo(
-                photo=qr_img,
-                caption=f"✅ QR Code از عکس ساخته شد!\n📝 متن استخراج شده:\n{text.strip()[:200]}"
-            )
-            await status.delete()
-        else:
-            await status.edit_text("❌ متنی توی عکس پیدا نشد")
-    except Exception as e:
-        await status.edit_text(f"❌ خطا: {str(e)[:100]}")
 
 # ============== اجرا ==============
 def main():
