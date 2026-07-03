@@ -164,7 +164,7 @@ def main():
     app.add_handler(CommandHandler("broadcast", broadcast))
     
     # پیام‌ها
-    app.add_handler(MessageHandler(filters.PHOTO, handle_photo))
+    app.add_handler(MessageHandler(filters.PHOTO))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text))
     
     print("🤖 ربات اجرا شد!")
