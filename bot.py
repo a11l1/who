@@ -62,7 +62,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "🤖 به ربات QR Code خوش اومدی!\n\n"
         "📝 هر متنی بفرستی → تبدیل به QR Code میشه\n"
         "🖼️ هر عکسی بفرستی → متنش استخراج و QR میشه\n\n"
-        "سازنده: @al1_dev"
+        
     )
 
 async def get_id(update: Update, context: ContextTypes.DEFAULT_TYPE):
