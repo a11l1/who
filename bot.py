@@ -9,8 +9,8 @@ from telegram.ext import (
 )
 
 # ==================== تنظیمات ====================
-TOKEN = "token"  # توکن رباتت بزار اینجا
-ADMIN_ID = 0000000
+BOT_TOKEN =  ""
+ADMIN_ID = ""
 
 
 logging.basicConfig(level=logging.INFO)
