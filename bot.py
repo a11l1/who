@@ -61,7 +61,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"سلام {user.first_name}! 👋\n\n"
         "🤖 به ربات QR Code خوش اومدی!\n\n"
         "📝 هر متنی بفرستی → تبدیل به QR Code میشه\n"
-        
     )
 
 async def get_id(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -81,7 +80,7 @@ async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # ============== Broadcast ==============
 async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_ID:
-        await update.message.reply_text("⛔ دسترسی نداری")
+        await update.message.reply_text("⛔️ دسترسی نداری")
         return
     
     if not context.args:
