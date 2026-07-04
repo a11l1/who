@@ -2315,7 +2315,7 @@ async def midnight_income(context: ContextTypes.DEFAULT_TYPE):
 def main():
     init_db()
     
-    app = Application.builder().token(TOKEN).build()
+    app = Application.builder().token(BOT_TOKEN).build()
     
     # جاب صبح‌گاهی ساعت ۰۰:۰۰
     app.job_queue.run_daily(midnight_income, time=time(hour=0, minute=0))
